@@ -1,6 +1,7 @@
 """Tests de Tools y Memoria (Fases 2, 3 y 4)."""
 import sys
 import os
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from agent.tools.consultar_pedido import consultar_pedido
@@ -9,6 +10,7 @@ from agent.tools.calcular_reembolso import calcular_reembolso
 from agent.tools.generar_etiqueta import generar_etiqueta
 from agent.tools.actualizar_crm import actualizar_crm
 from agent.tools.notificar_cliente import notificar_cliente
+from agent.tools.buscar_casos import buscar_casos_similares
 
 def test_consultar_pedido_y_memoria():
     r = consultar_pedido.invoke({"pedido_id": "PED-001"})
@@ -38,3 +40,8 @@ def test_actualizar_crm():
 def test_notificar_cliente():
     r = notificar_cliente.invoke({"cliente_id": "CLI-01", "mensaje": "Prueba"})
     assert r["ok"] is True
+    
+def test_buscar_casos_similares():
+    r = buscar_casos_similares.invoke({"consulta": "devolución de electrónica"})
+    assert r["encontrado"] is True
+    assert "30 días" in r["politica"]
