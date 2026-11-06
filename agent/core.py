@@ -49,7 +49,7 @@ def procesar_solicitud(pedido_id: str, motivo: str = "") -> dict:
 
     Este es el punto de entrada que usará Streamlit.
     """
-    # 1. Triage determinístico (usa las tools como funciones, sin LLM)
+    
     pedido = consultar_pedido.invoke({"pedido_id": pedido_id})
     if "error" in pedido:
         return {"ok": False, "error": pedido["error"]}
@@ -58,7 +58,7 @@ def procesar_solicitud(pedido_id: str, motivo: str = "") -> dict:
     estado = construir_estado(pedido, validacion)
     accion = decidir_accion(estado)
 
-    # 2. Ejecutar acciones según la decisión
+    
     resultado = {"pedido_id": pedido_id, "accion": accion.tipo,
                  "razon": accion.razon, "pedido": pedido, "validacion": validacion}
 
