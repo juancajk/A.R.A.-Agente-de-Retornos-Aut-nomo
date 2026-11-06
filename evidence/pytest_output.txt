@@ -1,0 +1,32 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.7, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\const\Downloads\A.R.A.-Agente-de-Retornos-Aut-nomo\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\const\Downloads\A.R.A.-Agente-de-Retornos-Aut-nomo
+plugins: anyio-4.16.0, langsmith-0.14.17
+collecting ... collected 17 items
+
+tests/test_e2e.py::test_flujo_estandar PASSED                            [  5%]
+tests/test_e2e.py::test_flujo_fuera_de_plazo PASSED                      [ 11%]
+tests/test_e2e.py::test_flujo_alto_valor PASSED                          [ 17%]
+tests/test_e2e.py::test_pedido_inexistente PASSED                        [ 23%]
+tests/test_planner.py::test_escalar_por_no_elegible PASSED               [ 29%]
+tests/test_planner.py::test_escalar_por_fuera_de_plazo PASSED            [ 35%]
+tests/test_planner.py::test_solicitar_aprobacion_por_monto_alto PASSED   [ 41%]
+tests/test_planner.py::test_escalar_por_fraude PASSED                    [ 47%]
+tests/test_planner.py::test_aprobar_preferente PASSED                    [ 52%]
+tests/test_planner.py::test_aprobar_estandar PASSED                      [ 58%]
+tests/test_tools.py::test_consultar_pedido_y_memoria PASSED              [ 64%]
+tests/test_tools.py::test_validar_politica PASSED                        [ 70%]
+tests/test_tools.py::test_calcular_reembolso PASSED                      [ 76%]
+tests/test_tools.py::test_generar_etiqueta PASSED                        [ 82%]
+tests/test_tools.py::test_actualizar_crm PASSED                          [ 88%]
+tests/test_tools.py::test_notificar_cliente PASSED                       [ 94%]
+tests/test_tools.py::test_buscar_casos_similares PASSED                  [100%]
+
+============================== warnings summary ===============================
+tests/test_tools.py::test_buscar_casos_similares
+  C:\Users\const\Downloads\A.R.A.-Agente-de-Retornos-Aut-nomo\agent\tools\buscar_casos.py:9: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-huggingface package and should be used instead. To use it run `pip install -U :class:`~langchain-huggingface` and import as `from :class:`~langchain_huggingface import HuggingFaceEmbeddings``.
+    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 17 passed, 1 warning in 18.31s ========================
